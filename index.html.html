@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabriela Malheiros · Senior Product Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0d0d0d;
+    --mist: #f4f1ec;
+    --gold: #b89a5a;
+    --gold-light: #e8d9b8;
+    --warm: #f9f6f0;
+    --line: rgba(13,13,13,0.12);
+  }
+
+  html, body {
+    min-height: 100vh;
+    background: var(--mist);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    padding: 24px 16px;
+  }
+
+  .card {
+    background: var(--warm);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 12px 48px rgba(0,0,0,0.10);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), #d4b87a, var(--gold));
+  }
+
+  .top {
+    padding: 40px 36px 28px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  .name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .role {
+    font-size: 13px;
+    font-weight: 400;
+    color: #5a5550;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+
+  .role strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .divider {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px 0;
+  }
+
+  .tagline {
+    font-size: 12px;
+    color: #7a746d;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .qr-section {
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  #qrcode {
+    flex-shrink: 0;
+    background: white;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+  }
+
+  #qrcode img, #qrcode canvas {
+    display: block;
+  }
+
+  .qr-info {
+    flex: 1;
+  }
+
+  .qr-label {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .qr-desc {
+    font-size: 12px;
+    color: #5a5550;
+    line-height: 1.6;
+  }
+
+  .contacts {
+    padding: 28px 36px 36px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .contact-item:last-child { border-bottom: none; }
+  .contact-item:hover { opacity: 0.65; }
+
+  .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--gold-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .icon svg {
+    width: 14px;
+    height: 14px;
+    fill: var(--gold);
+  }
+
+  .contact-text {
+    flex: 1;
+  }
+
+  .contact-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #a09890;
+    font-weight: 500;
+  }
+
+  .contact-value {
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+    margin-top: 1px;
+  }
+
+  .footer {
+    background: var(--ink);
+    padding: 14px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-text {
+    font-size: 10px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.1em;
+  }
+
+  .langs {
+    display: flex;
+    gap: 8px;
+  }
+
+  .lang-tag {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.08);
+    padding: 3px 8px;
+    border-radius: 1px;
+  }
+
+  .save-btn {
+    display: block;
+    margin: 0 36px 28px;
+    padding: 12px 0;
+    background: var(--ink);
+    color: white;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 1px;
+    transition: background 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .save-btn:hover { background: #2a2a2a; }
+
+  @media (prefers-color-scheme: dark) {
+    body { background: #1a1815; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="top">
+    <div class="label">Senior Product Manager</div>
+    <div class="name">Gabriela<br>Malheiros</div>
+    <div class="divider"></div>
+    <div class="role">
+      <strong>B2B SaaS · AI Products · Growth</strong><br>
+      10+ years · Remote-first · Open to global roles
+    </div>
+
+  </div>
+
+  <div class="qr-section">
+    <div id="qrcode"></div>
+    <div class="qr-info">
+      <div class="qr-label">Scan to connect</div>
+      <div class="qr-desc">Opens my LinkedIn profile directly on your phone.</div>
+    </div>
+  </div>
+
+  <div class="contacts">
+    <a class="contact-item" href="https://www.linkedin.com/in/gabriela-mmm/" target="_blank">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </div>
+      <div class="contact-text">
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">linkedin.com/in/gabriela-mmm</div>
+      </div>
+    </a>
+
+    <a class="contact-item" href="mailto:mmmalheiros.gabriela@gmail.com">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.401.147-.765.386-1.045L12 13.091 23.614 4.412c.24.28.386.644.386 1.045z"/></svg>
+      </div>
+      <div class="contact-text">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">mmmalheiros.gabriela@gmail.com</div>
+      </div>
+    </a>
+
+    <a class="contact-item" href="tel:+5511987032536">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      </div>
+      <div class="contact-text">
+        <div class="contact-label">Phone / WhatsApp</div>
+        <div class="contact-value">+55 11 98703-2536</div>
+      </div>
+    </a>
+  </div>
+
+  <button class="save-btn" onclick="saveContact()">+ Save Contact</button>
+
+  <div class="footer">
+    <span class="footer-text">NYC · June 2026</span>
+    <div class="langs">
+      <span class="lang-tag">PT</span>
+      <span class="lang-tag">EN</span>
+      <span class="lang-tag">ES</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  new QRCode(document.getElementById("qrcode"), {
+    text: "https://www.linkedin.com/in/gabriela-mmm/",
+    width: 110,
+    height: 110,
+    colorDark: "#0d0d0d",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+
+  function saveContact() {
+    const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Gabriela Malheiros
+TITLE:Senior Product Manager
+TEL;TYPE=CELL:+5511987032536
+EMAIL:mmmalheiros.gabriela@gmail.com
+URL:https://www.linkedin.com/in/gabriela-mmm/
+NOTE:B2B SaaS · AI Products · Growth & Retention
+END:VCARD`;
+    const blob = new Blob([vcard], { type: 'text/vcard' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'Gabriela_Malheiros.vcf';
+    a.click();
+  }
+</script>
+</body>
+</html>
